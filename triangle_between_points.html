@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+     <meta charset="UTF-8">
+     <title>Triangle</title>
+ </head>
+ <body>
+     <canvas id="canvas" width="600" height="500" style="border:1px solid black;"></canvas>
+     <script>
+       const canvas = document.getElementById('canvas');
+       const ctx = canvas.getContext('2d');
+     </script>
+ </body>
+ </html><!DOCTYPE html>
+ <html>
+ <head>
+     <meta charset="UTF-8">
+     <title>Triangle</title>
+ </head>
+ <body>
+     <canvas id="canvas" width="600" height="500" style="border:1px solid black;"></canvas>
+     <script>
+       const canvas = document.getElementById('canvas');
+       const ctx = canvas.getContext('2d');
+     ctx.beginPath();
+ctx.moveTo(300, 0);
+ctx.lineTo(262, 62);
+ctx.lineTo(337, 62);
+ctx.closePath();
+ctx.strokeStyle = "blue";
+ctx.lineWidth = 2;
+ctx.stroke();
+</script>
+ </body>
+ </html>
