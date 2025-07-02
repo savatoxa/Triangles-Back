@@ -40,17 +40,20 @@ fun Application.module() {
                     </label>
                     <button type="submit">Calculate</button>
                 </form>
-                """.trimIndent(), ContentType.Text.Html)
+                """.trimIndent(), ContentType.Text.Html
+            )
         }
 
         get("/draw") {
-            val count = call.request.queryParameters["count"]?.toIntOrNull() ?: 10
-
+            var count = call.request.queryParameters["count"]?.toIntOrNull() ?: 10
+            if (count < 0 || count > 100000)
+                count = numTriangles
+            
             val initial = mutableSetOf(triangleABC)
-            val triangles = DivideTriangles.divideTriangles(initial, count)
-            val triangleJs = triangles.joinToString("\n") { DrawTriangles.drawTriangle(it) }
+                val triangles = DivideTriangles.divideTriangles(initial, count)
+                val triangleJs = triangles.joinToString("\n") {DrawTriangles.drawTriangle(it)}
 
-            val html = """
+                val html = """
         <!DOCTYPE html>
         <html>
         <head>
@@ -77,8 +80,8 @@ fun Application.module() {
         </html>
     """.trimIndent()
 
-            call.respondText(html, ContentType.Text.Html)
+                call.respondText(html, ContentType.Text.Html)
+            }
         }
     }
-}
 
