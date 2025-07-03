@@ -15,8 +15,9 @@ object DivideTriangles {
         if (triangles.size >= count)
             return triangles
         val newTriangles = mutableSetOf<Triangle>()
-        for (triangle in triangles)
+        for (triangle in triangles) {
             newTriangles.addAll(addMissingTriangles(triangle))
+        }
         return divideTriangles(newTriangles, count)
     }
 }

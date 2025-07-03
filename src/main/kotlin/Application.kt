@@ -10,11 +10,8 @@ import kotlin.concurrent.thread
 
 const val width = 1000
 const val height = 800
-const val numTriangles = 20
-const val maxTriangles = 50000
-
-//val resTriangles = DivideTriangles.divideTriangles(mutableSetOf(triangleABC), count = 500)
-//val resTrianglesHtml = DrawTriangles.drawTriangles(resTriangles)
+const val numTriangles = 0
+const val maxTriangles = 8
 
 fun main(args: Array<String>) {
     thread {
@@ -51,7 +48,7 @@ fun Application.module() {
                 count = numTriangles
 
             val initial = mutableSetOf(triangleABC)
-                val triangles = DivideTriangles.divideTriangles(initial, count)
+                val triangles = DivideTriangles.divideTriangles(initial, Math.pow( 4.0, count.toDouble()).toInt() )
                 val triangleJs = triangles.joinToString("\n") {DrawTriangles.drawTriangle(it)}
 
                 val html = """
