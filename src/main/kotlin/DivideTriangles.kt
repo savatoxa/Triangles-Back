@@ -9,7 +9,8 @@ object DivideTriangles {
         val newTriangleLeft = Triangle(newTriangle.A, triangle.B, newTriangle.B)
         val newTriangleRight = Triangle(newTriangle.C, newTriangle.B, triangle.C)
         val newTriangleUpper = Triangle(triangle.A, newTriangle.A, newTriangle.C)
-        return mutableSetOf(newTriangle, newTriangleLeft, newTriangleRight, newTriangleUpper)
+        //return mutableSetOf(newTriangle, newTriangleLeft, newTriangleRight, newTriangleUpper)
+        return mutableSetOf(newTriangleLeft, newTriangleRight, newTriangleUpper)
     }
     fun divideTriangles(triangles: MutableSet<Triangle>, count : Int = numTriangles) : MutableSet<Triangle> {
         if (triangles.size >= count)
