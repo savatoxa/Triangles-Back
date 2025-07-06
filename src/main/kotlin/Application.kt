@@ -11,7 +11,7 @@ import kotlin.concurrent.thread
 const val width = 1000
 const val height = 800
 const val numTriangles = 0
-const val maxTriangles = 8
+const val maxTriangles = 7
 
 fun main(args: Array<String>) {
     thread {
@@ -43,7 +43,7 @@ fun Application.module() {
         }
 
         get("/draw") {
-            var count = call.request.queryParameters["count"]?.toIntOrNull() ?: 10
+            var count = call.request.queryParameters["count"]?.toIntOrNull() ?: 3
             if (count < 0 || count > maxTriangles)
                 count = numTriangles
 
