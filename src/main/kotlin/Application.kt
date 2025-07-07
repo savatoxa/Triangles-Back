@@ -34,7 +34,7 @@ fun Application.module() {
                 """
                 <form action="/draw" method="get">
                     <label>Dividion depth:
-                      <input name="count" type="number" value="10">
+                      <input name="count" type="number" value="3">
                     </label>
                     <button type="submit">Calculate</button>
                 </form>
